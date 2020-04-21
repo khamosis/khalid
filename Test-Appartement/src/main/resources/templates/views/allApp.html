@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="/http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+
+</head>
+<body>
+
+	<div layout:fragment="content" class="container myspace">
+	
+<!-- 	<div class="form-group mb-2"> -->
+<!-- 	<a th:href="@{/addApp(email=${email})}" class="btn btn-dark">Add Appartement</a> -->
+	
+<!-- 	</div> -->
+	
+	<form th:action="@{/appartements}" class="form-inline">
+	<div class="form-group mb-2">
+	<input type="search" class="form-control" name="quartier" placeholder="Chercher par quartier"/>
+	<input type="submit" value="Chercher" class="btn btn-primary"/>
+	</div>
+	</form>
+
+		<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Photo</th>
+							<th>Titre</th>
+							<th>Adresse</th>
+							<th>Quartier</th>
+							<th>Prix</th>
+							
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="app:${appartements}">
+							<td th:hidden="${app.id}"></td>
+							<td><a 
+							th:href="@{/display(id=${app.id}}"><img th:src="@{'/image/{id}'(id=${app.photos})}"
+								 width="100" height="100" /></a></td>
+						
+							<td th:text="${app.titre}"></td>
+							<td th:text="${app.adresse}"></td>
+							<td th:text="${app.quartier}"></td>
+							<td th:text="${app.prix}"></td>
+							
+						
+<!-- 							<td><a th:href="@{/addApp(email=${app.email})}" class="btn btn-dark">Delete</a></td> -->
+						</tr>
+					</tbody>
+				
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

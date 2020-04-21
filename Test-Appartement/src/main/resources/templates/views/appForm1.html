@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="/http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<title>Register Form</title>
+<meta charset="UTF-8">
+
+</head>
+<body>
+
+	<div layout:fragment="content" class="container myspace">
+
+
+		<form th:action="@{/addAppP}" th:object="${app}" method="post">
+	<div class="contour">
+			<div class="form-group">
+				<label for="titre" class="form-control-label">Titre</label> 
+				<input
+					type="text" class="form-control" th:field="*{titre}" id="titre" />
+				<div class="text text-danger" th:if="${#fields.hasErrors('titre')}"
+					th:errors="*{titre}"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="adresse" class="form-control-label">Adresse</label> 
+				<input
+					type="text" class="form-control" th:field="*{adresse}" id="adresse" />
+				<div class="text text-danger"
+					th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></div>
+
+			</div>
+
+			<div class="form-group">
+				<label for="quartier" class="form-control-label">Quartier</label> 
+				<input
+					type="text" class="form-control" th:field="*{quartier}"
+					id="quartier" />
+				<div class="text text-danger"
+					th:if="${#fields.hasErrors('quartier')}" th:errors="*{quartier}"></div>
+			</div>
+			<div class="form-group">
+				<label for="superficie" class="form-control-label">Superficie</label>
+				<input type="text" class="form-control" th:field="*{superficie}"
+					id="superficie" placeholder="Superficie en mètre carré"/>
+				<div class="text text-danger"
+					th:if="${#fields.hasErrors('superficie')}"
+					th:errors="*{superficie}"></div>
+			</div>
+			<div class="form-group">
+				<label for="chambre" class="form-control-label">Nbr Chambres</label>
+				<input type="text" class="form-control" th:field="*{chambre}"
+					id="chambre" />
+			</div>
+			<div class="form-group">
+				<label for="cuisine" class="form-control-label">Nbr Cuisines</label>
+				<input type="text" class="form-control" th:field="*{cuisine}"
+					id="cuisine" />
+			</div>
+			<div class="form-group">
+				<label for="salleDeBain" class="form-control-label">Nbr
+					Salle de bain</label> 
+				<input type="text" class="form-control"
+					th:field="*{salleDeBain}" id="salleDeBain" />
+			</div>
+			<div class="form-group">
+				<label for="salon" class="form-control-label">Nbr Salon</label> 
+				<input
+					type="text" class="form-control" th:field="*{salon}" id="salon" />
+			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="terrace" class="form-control-label">Terrace</label>  -->
+<!-- 				<input -->
+<!-- 					type="checkbox" class="form-control" th:field="*{terrace}" -->
+<!-- 					id="terrace" /> -->
+<!-- 			</div> -->
+			
+			<div class="form-group">
+				<label for="terrace" class="form-control-label">Terrace</label> 
+				<input
+					type="text" class="form-control" th:field="*{terrace}" id="terrace" placeholder="Entrer svp 'Oui' ou 'Non'" />
+			</div>
+			
+			<div class="form-group">
+				<label for="description" class="form-control-label">Description</label>
+				<textarea class="form-control" th:field="*{description}"
+					id="description" ></textarea>
+			</div>
+			<div class="form-group">
+				<label for="prix" class="form-control-label">Prix</label> 
+				<input
+					type="text" class="form-control" th:field="*{prix}" id="prix" />
+					<div class="text text-danger"
+					th:if="${#fields.hasErrors('prix')}"
+					th:errors="*{prix}"></div>
+			</div>
+			<div class="form-group">
+				<label for="photos" class="form-control-label">Photo</label> 
+				<input
+					type="file" class="form-control" th:field="*{photos}" id="photos" />
+			</div>
+			
+			<div class="form-group">
+				<label for="user.email" class="form-control-label">Email</label> 
+				<input
+					type="text" class="form-control" th:field="*{user.email}" id="user.email" placeholder="Enter your E-mail address" />
+			</div>
+			
+<!-- 				<div class="form-group"> -->
+<!-- 				<label for="Email" class="form-control-label">Email</label>  -->
+<!-- 				<input -->
+<!-- 					type="text" class="form-control" th:field="*{[[${#httpServletRequest.remoteUser}]]}" id="prix" /> -->
+					
+<!-- 			</div> -->
+
+
+			<input type="submit" value="Submit" class="btn btn-primary" />
+</div>
+		</form>
+
+	</div>
+
+
+</body>
+</html>
